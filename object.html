@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT</title>
+</head>
+<body>
+    
+
+    <script>
+        // Create an object
+        const person = {
+            name: "John ",
+            lastName:"Dela Cruz",
+            age: 30,
+            city: "New York"
+        };
+        console.log(person);
+         //Access object properties
+        console.log(person.name); // Output: John
+        console.log(person.age);  // Output: 30
+        console.log(person.city); // Output: New York
+
+        // Modify object properties
+        person.age = 31;
+        console.log(person.age); // Output: 31
+
+        // Add new properties
+        person.job = "Engineer";
+        console.log(person.job); // Output: Engineer
+
+        // Delete a property
+        delete person.city;
+
+        const hero ={
+            name: "Ben 10",
+            age: 10,
+            power: "Alien Transformation",
+            health:999999,
+            ultimatrix:true,
+            ultimatrixColors:["green", "black", "white"],
+            ultimatrixFunctions:{
+                ultimatrixLevel:5,
+                // Detailed list Ben 10 aliens
+                alienList:[
+                    "Heatblast","Wildmutt","Diamondhead","XLR8","Grey Matter","Four Arms",
+                    "Stinkfly","Ripjaws","Upgrade","Ghostfreak","Cannonbolt","Wildvine",
+                    "Blitzwolfer","Upchuck","Eye Guy","Ditto","Way Big","Clockwork",
+                    "Nanomech","Spitter","Goop","Humungousaur","Alien X","Big Chill",
+                    "Jetray","Chromastone","Rath","Swampfire","Armodrillo","Echo Echo",
+                    "Feedback","Fasttrack","Terraspin","Atomix","Water Hazard","Kickin Hawk"
+                ],
+                alienForms: 36,
+                    // Abilities and skills for each alien (concise overview)
+                    alienData: {
+                        "Heatblast": { abilities:["Pyrokinesis","Fire Projection"], skills:["Thermal Control"] },
+                        "Wildmutt": { abilities:["Enhanced Senses","Agility"], skills:["Tracking"] },
+                        "Diamondhead": { abilities:["Crystal Generation","Armor"], skills:["Defense","Sharp Strikes"] },
+                        "XLR8": { abilities:["Super Speed","Rapid Acceleration"], skills:["High Maneuverability"] },
+                        "Grey Matter": { abilities:["Genius Intellect","Tech Analysis"], skills:["Engineering","Hacking"] },
+                        "Four Arms": { abilities:["Super Strength","Durability"], skills:["Grappling","Brute Force"] },
+                        "Stinkfly": { abilities:["Flight","Acidic Spray"], skills:["Aerial Combat"] },
+                        "Ripjaws": { abilities:["Aquatic Breathing","Underwater Speed"], skills:["Swimming","Bite Attacks"] },
+                        "Upgrade": { abilities:["Technopathy","Armor Integration"], skills:["Device Fusion"] },
+                        "Ghostfreak": { abilities:["Intangibility","Possession"], skills:["Stealth"] },
+                        "Cannonbolt": { abilities:["Armored Roll","Impact Damage"], skills:["Ram Attacks"] },
+                        "Wildvine": { abilities:["Plant Manipulation","Regeneration"], skills:["Restraint","Vine Attacks"] },
+                        "Blitzwolfer": { abilities:["Sonic Howl","Enhanced Agility"], skills:["Pack Tactics"] },
+                        "Upchuck": { abilities:["Digestive Projection","Projectile Vomit"], skills:["Improvised Ammunition"] },
+                        "Eye Guy": { abilities:["Multi-Optic Vision","Energy Beams"], skills:["Precision Targeting"] },
+                        "Ditto": { abilities:["Duplication","Split Attacks"], skills:["Swarm Tactics"] },
+                        "Way Big": { abilities:["Gigantic Size","Cosmic Strength"], skills:["Area Control"] },
+                        "Clockwork": { abilities:["Time Manipulation","Temporal Constructs"], skills:["Time-based Strategy"] },
+                        "Nanomech": { abilities:["Nanotech Control","Miniaturization"], skills:["Infiltration"] },
+                        "Spitter": { abilities:["Acidic Projectiles","Gland Spit"], skills:["Ranged Harassment"] },
+                        "Goop": { abilities:["Amorphous Form","Adhesion"], skills:["Shape Shifting"] },
+                        "Humungousaur": { abilities:["Massive Strength","Size Growth"], skills:["Crushing Blows"] },
+                        "Alien X": { abilities:["Reality Warping","Omnipotence (limited)"], skills:["Judgment"] },
+                        "Big Chill": { abilities:["Cryokinesis","Intangibility"], skills:["Stealth & Freeze"] },
+                        "Jetray": { abilities:["Flight","Energy Beams"], skills:["High-speed Strikes"] },
+                        "Chromastone": { abilities:["Energy Absorption","Energy Projection"], skills:["Power Conversion"] },
+                        "Rath": { abilities:["Berserker Strength","Claws"], skills:["Close-Combat Aggression"] },
+                        "Swampfire": { abilities:["Pyro-Plant Control","Regeneration"], skills:["Area Denial"] },
+                        "Armodrillo": { abilities:["Seismic Punch","Drilling"], skills:["Terrain Manipulation"] },
+                        "Echo Echo": { abilities:["Sonic Clones","Sound Manipulation"], skills:["Disorientation"] },
+                        "Feedback": { abilities:["Energy Absorption","Energy Discharge"], skills:["Power Redirect"] },
+                        "Fasttrack": { abilities:["Extreme Speed","Momentum Control"], skills:["Hit-and-run"] },
+                        "Terraspin": { abilities:["Gyrokinesis","Armor Shell"], skills:["Defensive Spin"] },
+                        "Atomix": { abilities:["Nuclear Energy Manipulation","Massive Explosions"], skills:["Destructive Power"] },
+                        "Water Hazard": { abilities:["Hydrokinesis","Toxin Projection"], skills:["Fluid Control"] },
+                        "Kickin Hawk": { abilities:["Aerial Combat","Kicking Mastery"], skills:["Precision Strikes"] }
+                    },
+                timeLimit:"30 minutes",
+                rechargeTime:"1 hour",
+                ultimatrixbattery:{
+                    level:"Full",
+                    percentage:100
+                },
+            },
+            currentForm: "Human",
+            // Combat properties
+            attackDamage: 50,
+            stamina: 100,
+            maxStamina: 100,
+            skills: {
+                "Heatblast Blast": { damage: 120, effect: "burn", cost: 10 },
+                "XLR8 Strike": { damage: 80, effect: "stun", cost: 8 },
+                "FourArms Smash": { damage: 150, effect: "knockback", cost: 12 },
+                "Diamondhead Shard": { damage: 110, effect: "armorPierce", cost: 9 }
+            },
+            transform: function(alienFormOrIndex) {
+                console.log('hero.transform called with:', alienFormOrIndex);
+                const list = this.ultimatrixFunctions.alienList;
+                const battery = this.ultimatrixFunctions.ultimatrixbattery;
+                if (battery.percentage <= 0) { console.log('Cannot transform: Ultimatrix battery empty'); return; }
+                let target = null;
+                if (typeof alienFormOrIndex === 'number') {
+                    target = list[alienFormOrIndex] || null;
+                } else if (typeof alienFormOrIndex === 'string') {
+                    if (alienFormOrIndex.toLowerCase() === 'random') {
+                        target = list[Math.floor(Math.random() * list.length)];
+                    } else {
+                        // find by name (case-insensitive)
+                        const found = list.find(a => a.toLowerCase() === alienFormOrIndex.toLowerCase());
+                        target = found || null;
+                    }
+                }
+                if (!target) {
+                    console.log('hero.transform failed: alien not found. Use an index (0-' + (list.length-1) + ') or a valid name.', alienFormOrIndex);
+                    return;
+                }
+                // end any existing transform interval
+                if (this._transformInterval) { clearInterval(this._transformInterval); this._transformInterval = null; }
+                this.currentForm = target;
+                console.log('hero.transform succeeded: currentForm set to', this.currentForm);
+                // start draining Ultimatrix battery while transformed
+                const drainPerTick = 5; // percent per tick
+                const tickMs = 3000; // every 3 seconds
+                this._transformInterval = setInterval(() => {
+                    const b = this.ultimatrixFunctions.ultimatrixbattery;
+                    if (!b) return;
+                    b.percentage = Math.max(0, b.percentage - drainPerTick);
+                    console.log('Ultimatrix drains', drainPerTick + '%. Remaining:', b.percentage + '%');
+                    if (b.percentage <= 0) {
+                        console.log('Ultimatrix battery depleted — reverting to Human form');
+                        this.endTransform();
+                    }
+                }, tickMs);
+            },
+            endTransform: function() {
+                if (this._transformInterval) { clearInterval(this._transformInterval); this._transformInterval = null; }
+                this.currentForm = 'Human';
+                console.log(this.name + ' has reverted to Human form. Current form:', this.currentForm);
+            },
+            basicAttack: function(target) {
+                console.log('hero.basicAttack called on:', target && target.name ? target.name : target);
+                if (!target || typeof target.health !== 'number') {
+                    console.log('hero.basicAttack failed: invalid target');
+                    return;
+                }
+                const dmg = this.attackDamage;
+                if (typeof target.takeDamage === 'function') {
+                    target.takeDamage(dmg);
+                } else {
+                    target.health = Math.max(0, target.health - dmg);
+                    console.log(this.name + ' hits ' + target.name + ' for ' + dmg + ' damage. Target HP:', target.health);
+                    if (target.health === 0) console.log(target.name + ' has been defeated by ' + this.name + '!');
+                }
+            },
+            listAliens: function() {
+                console.log('hero.listAliens called');
+                const list = this.ultimatrixFunctions.alienList;
+                list.forEach(function(a, i) {
+                    console.log(i + ": " + a);
+                });
+                console.log('hero.listAliens finished, total:', list.length);
+            },
+            describeAlien: function(alienFormOrIndex) {
+                console.log('hero.describeAlien called with:', alienFormOrIndex);
+                const data = this.ultimatrixFunctions.alienData;
+                const list = this.ultimatrixFunctions.alienList;
+                let key = null;
+                if (typeof alienFormOrIndex === 'number') key = list[alienFormOrIndex];
+                else if (typeof alienFormOrIndex === 'string') {
+                    if (alienFormOrIndex.toLowerCase() === 'random') {
+                        key = list[Math.floor(Math.random() * list.length)];
+                    } else {
+                        key = list.find(a => a.toLowerCase() === alienFormOrIndex.toLowerCase()) || null;
+                    }
+                }
+                if (!key || !data[key]) {
+                    console.log('hero.describeAlien failed: Alien data not found for:', alienFormOrIndex);
+                    return;
+                }
+                const info = data[key];
+                console.log('hero.describeAlien showing data for:', key);
+                console.log('--- ' + key + ' ---');
+                console.log('Abilities: ' + (info.abilities || []).join(', '));
+                console.log('Skills: ' + (info.skills || []).join(', '));
+                console.log('hero.describeAlien finished for:', key);
+            }
+            ,recharge: function(amount) {
+                console.log('hero.recharge called with:', amount);
+                const battery = this.ultimatrixFunctions.ultimatrixbattery;
+                if (typeof amount !== 'number' || amount <= 0) {
+                    console.log("hero.recharge failed: Invalid recharge amount", amount);
+                    return;
+                }
+                battery.percentage = Math.min(100, battery.percentage + amount);
+                console.log("Ultimatrix battery: " + battery.percentage + "%");
+                console.log('hero.recharge finished: battery at', battery.percentage + '%');
+            }
+            ,useSkill: function(skillName, target) {
+                console.log('hero.useSkill called:', skillName, 'on', target && target.name);
+                const skill = this.skills[skillName];
+                if (!skill) { console.log('hero.useSkill failed: skill not found:', skillName); return; }
+                if (!target || typeof target.health !== 'number') { console.log('hero.useSkill failed: invalid target'); return; }
+                const cost = skill.cost || 0;
+                // If currently transformed, skills use Ben 10's stamina instead of Ultimatrix battery
+                if (this.currentForm && this.currentForm !== 'Human') {
+                    if (this.stamina < cost) { console.log(this.name + ' does not have enough stamina to use ' + skillName + '. Need: ' + cost + ', Current: ' + this.stamina); return; }
+                    this.stamina = Math.max(0, this.stamina - cost);
+                    console.log(this.name + ' consumes ' + cost + ' stamina for ' + skillName + '. Remaining stamina: ' + this.stamina);
+                } else {
+                    const battery = this.ultimatrixFunctions.ultimatrixbattery;
+                    if (battery.percentage < cost) { console.log(this.name + ' does not have enough Ultimatrix charge to use ' + skillName + '. Need: ' + cost + '%, Current: ' + battery.percentage + '%'); return; }
+                    battery.percentage = Math.max(0, battery.percentage - cost);
+                    console.log(this.name + ' consumes ' + cost + '% Ultimatrix charge. Remaining: ' + battery.percentage + '%');
+                }
+                if (typeof target.takeDamage === 'function') {
+                    target.takeDamage(skill.damage);
+                } else {
+                    target.health = Math.max(0, target.health - skill.damage);
+                    console.log(this.name + ' uses ' + skillName + ' on ' + target.name + ' for ' + skill.damage + ' damage. Target HP:', target.health);
+                }
+                console.log('Effect applied:', skill.effect);
+                if (skill.effect && typeof target.applyEffect === 'function') {
+                    target.applyEffect({ type: skill.effect, duration: skill.duration || 2, damagePerTick: skill.dot || 0 });
+                }
+                if (target.health === 0) console.log(target.name + ' has been defeated by ' + this.name + ' using ' + skillName + '!');
+            },
+        };
+        console.log(hero);
+        console.log(hero.ultimatrixFunctions.ultimatrixbattery.percentage); // Output:
+        console.log(hero.ultimatrixColors[0]); // Output: green
+        // Enemy constructor + persistence helpers
+        function Enemy(name, health) {
+            this.name = name;
+            this.health = health;
+            this.maxHealth = health;
+            this.statusEffects = []; // { type, duration, damagePerTick }
+            this.loadState();
+        }
+        Enemy.prototype.takeDamage = function(dmg) {
+            if (typeof dmg !== 'number' || dmg <= 0) return;
+            this.health = Math.max(0, this.health - dmg);
+            console.log(this.name + ' takes ' + dmg + ' damage. HP:', this.health);
+            if (this.health === 0) console.log(this.name + ' has been defeated!');
+            this.saveState();
+        };
+        Enemy.prototype.applyEffect = function(effect) {
+            if (!effect || !effect.type) return;
+            this.statusEffects.push(Object.assign({}, effect));
+            console.log(this.name + ' is afflicted with ' + effect.type + ' for ' + (effect.duration || 0) + ' ticks.');
+            this.saveState();
+        };
+        Enemy.prototype.tickEffects = function() {
+            if (!this.statusEffects.length) return;
+            for (let i = this.statusEffects.length - 1; i >= 0; i--) {
+                const e = this.statusEffects[i];
+                if (e.damagePerTick) {
+                    this.health = Math.max(0, this.health - e.damagePerTick);
+                    console.log(this.name + ' suffers ' + e.damagePerTick + ' ' + e.type + ' damage. HP:', this.health);
+                }
+                e.duration = (e.duration || 0) - 1;
+                if (e.duration <= 0) {
+                    this.statusEffects.splice(i, 1);
+                    console.log(e.type + ' on ' + this.name + ' has ended.');
+                }
+                if (this.health === 0) console.log(this.name + ' has died from ' + e.type + '!');
+            }
+            this.saveState();
+        };
+        Enemy.prototype.isAlive = function() { return this.health > 0; };
+        Enemy.prototype.saveState = function() {
+            try { localStorage.setItem('enemy:' + this.name, JSON.stringify({ health: this.health, statusEffects: this.statusEffects })); }
+            catch (e) { /* ignore storage errors */ }
+        };
+        Enemy.prototype.loadState = function() {
+            try {
+                const s = localStorage.getItem('enemy:' + this.name);
+                if (s) {
+                    const obj = JSON.parse(s);
+                    if (typeof obj.health === 'number') this.health = obj.health;
+                    if (Array.isArray(obj.statusEffects)) this.statusEffects = obj.statusEffects;
+                }
+            } catch (e) { /* ignore parse errors */ }
+        };
+        Enemy.load = function(name) { const s = localStorage.getItem('enemy:' + name); if (!s) return null; try { const o = JSON.parse(s); return new Enemy(name, o.health || 0); } catch(e){return null} };
+        // Enemy combat defaults and actions
+        Enemy.prototype.attackDamage = 30;
+        Enemy.prototype.skills = {
+            "Bite": { damage: 30, effect: null },
+            "Poison Spit": { damage: 10, effect: 'poison', duration: 3, dot: 5 }
+        };
+        Enemy.prototype.basicAttack = function(target) {
+            console.log(this.name + '.basicAttack called on', target && (target.name || target.player));
+            if (!target || typeof target.health !== 'number') { console.log(this.name + '.basicAttack failed: invalid target'); return; }
+            const dmg = this.attackDamage || Enemy.prototype.attackDamage;
+            if (typeof target.takeDamage === 'function') target.takeDamage(dmg);
+            else {
+                target.health = Math.max(0, target.health - dmg);
+                console.log(this.name + ' hits ' + (target.name || target.player || 'target') + ' for ' + dmg + ' damage. Target HP:', target.health);
+                if (target.health === 0) console.log((target.name || target.player) + ' has been defeated by ' + this.name + '!');
+            }
+        };
+        Enemy.prototype.useSkill = function(skillName, target) {
+            console.log(this.name + '.useSkill called:', skillName, 'on', target && (target.name || target.player));
+            const skill = this.skills[skillName] || Enemy.prototype.skills[skillName];
+            if (!skill) { console.log(this.name + '.useSkill failed: skill not found:', skillName); return; }
+            if (!target || typeof target.health !== 'number') { console.log(this.name + '.useSkill failed: invalid target'); return; }
+            if (typeof target.takeDamage === 'function') target.takeDamage(skill.damage);
+            else {
+                target.health = Math.max(0, target.health - skill.damage);
+                console.log(this.name + ' uses ' + skillName + ' on ' + (target.name || target.player) + ' for ' + skill.damage + ' damage. Target HP:', target.health);
+            }
+            if (skill.effect && typeof target.applyEffect === 'function') {
+                target.applyEffect({ type: skill.effect, duration: skill.duration || 2, damagePerTick: skill.dot || 0 });
+            }
+        };
+        // act: choose a target from an array or use provided target; randomly basic attack or skill
+        Enemy.prototype.act = function(targets) {
+            // targets can be single target or array
+            let target = null;
+            if (!targets) return;
+            if (Array.isArray(targets)) {
+                const alive = targets.filter(t => t && typeof t.health === 'number' && t.health > 0);
+                if (!alive.length) return;
+                target = alive[Math.floor(Math.random() * alive.length)];
+            } else target = targets;
+            if (!target) return;
+            // decide action
+            const useSkill = Math.random() < 0.4; // 40% chance to use skill
+            if (useSkill) {
+                const skillNames = Object.keys(this.skills);
+                const skillName = skillNames[Math.floor(Math.random() * skillNames.length)];
+                this.useSkill(skillName, target);
+            } else {
+                this.basicAttack(target);
+            }
+        };
+       
+        const car = {
+            make: "Toyota",
+            model: "Corolla",
+            year: 2020,
+            color: "Blue",
+            start: function() {
+                console.log("Car started");
+            },
+            stop: function() {
+                console.log("Car stopped");
+            }
+        };
+        console.log(car);
+        car.start(); // Output: Car started
+        car.stop();  // Output: Car stopped
+
+        const Gods = {
+            name: "Thor",
+            power: "Thunder",
+            health: 10000,
+            mana: 500,
+            weapon: "Mjolnir",
+            realm: "Asgard",
+            fight: function() {
+                console.log(this.name + " is fighting with " + this.weapon);
+            }
+        }
+        console.log(Gods);
+        Gods.fight(); // Output: Thor is fighting with Mjolnir
+        // New Thor methods
+        Gods.summonStorm = function(target) {
+            console.log(this.name + " summons a storm on " + (target || "the enemy"));
+        };
+        Gods.strike = function() {
+            console.log(this.name + " strikes with " + this.weapon + "! ⚡");
+        };
+        // Thor combat
+        Gods.attackDamage = 120;
+        Gods.skills = {
+            "Hammer Swing": { damage: 140, effect: "stun", cost: 30 },
+            "Thunder Strike": { damage: 220, effect: "areaDamage", cost: 80 }
+        };
+        Gods.basicAttack = function(target) {
+            console.log('Gods.basicAttack called by', this.name, 'on', target && target.name);
+            if (!target || typeof target.health !== 'number') { console.log('Gods.basicAttack failed: invalid target'); return; }
+            const dmg = this.attackDamage;
+            if (typeof target.takeDamage === 'function') {
+                target.takeDamage(dmg);
+            } else {
+                target.health = Math.max(0, target.health - dmg);
+                console.log(this.name + ' hits ' + target.name + ' for ' + dmg + ' damage. Target HP:', target.health);
+                if (target.health === 0) console.log(target.name + ' has been smashed by ' + this.name + '!');
+            }
+        };
+        Gods.useSkill = function(skillName, target) {
+            console.log('Gods.useSkill called:', skillName, 'on', target && target.name);
+            const skill = this.skills[skillName];
+            if (!skill) { console.log('Gods.useSkill failed: skill not found'); return; }
+            if (!target || typeof target.health !== 'number') { console.log('Gods.useSkill failed: invalid target'); return; }
+            const cost = skill.cost || 0;
+            if (this.mana < cost) { console.log(this.name + ' does not have enough mana to use ' + skillName + '. Need: ' + cost + ', Current: ' + this.mana); return; }
+            this.mana = Math.max(0, this.mana - cost);
+            console.log(this.name + ' consumes ' + cost + ' mana. Remaining mana: ' + this.mana);
+            if (typeof target.takeDamage === 'function') {
+                target.takeDamage(skill.damage);
+            } else {
+                target.health = Math.max(0, target.health - skill.damage);
+                console.log(this.name + ' uses ' + skillName + ' on ' + target.name + ' for ' + skill.damage + ' damage. Effect:', skill.effect);
+            }
+            if (skill.effect && typeof target.applyEffect === 'function') {
+                target.applyEffect({ type: skill.effect, duration: skill.duration || 2, damagePerTick: skill.dot || 0 });
+            }
+            if (target.health === 0) console.log(target.name + ' has been obliterated by ' + this.name + ' using ' + skillName + '!');
+        };
+
+
+        const sololeveling = {
+            player: "Sung Jin-Woo",
+            rank: "S-Rank Hunter",
+            abilities: ["Shadow Extraction", "Shadow Monarch", "Regeneration,"],
+            skills: {
+                stealth: "Master of Stealth",
+                combat: "Expert in Close Combat",
+                strategy: "Tactical Genius"
+            },
+            level: 99,
+            health: 10000,
+            durability: 9500,
+            mana: 15000,
+            stamina:8000,
+            guild: "ahjin Guild",
+            weapons: ["Daggers", "Shadow Daggers", "Shadow Soldiers,demon monarch sword"],
+            showAbilities: function() {
+                console.log(this.player + "'s abilities are: " + this.abilities.join(", "));
+            },
+            showskills: function() {
+                console.log(this.player + "'s skills include: " + Object.values(this.skills).join(", "));
+            },
+            rankUp: function(newRank) {
+                this.rank = newRank;
+            }
+        };
+        console.log(sololeveling);
+        sololeveling.showAbilities(); // Output: Sung Jin-Woo's abilities are: Shadow Extraction, Shadow Monarch, Regeneration
+        sololeveling.showskills(); // Output: Sung Jin-Woo's skills include: Master of Stealth, Expert in Close Combat, Tactical Genius
+        // Example rank-up
+        sololeveling.rankUp("N-Rank Hunter");
+        console.log(sololeveling.player + " has been promoted to " + sololeveling.rank);
+        // Sung Jin-Woo combat
+        sololeveling.attackDamage = 180;
+        sololeveling.skills.attack = {
+            name: 'Shadow Dagger Throw',
+            damage: 300,
+            effect: 'pierce',
+            cost: 500
+        };
+        sololeveling.basicAttack = function(target) {
+            console.log('sololeveling.basicAttack called on', target && target.name);
+            if (!target || typeof target.health !== 'number') { console.log('sololeveling.basicAttack failed: invalid target'); return; }
+            const dmg = this.attackDamage;
+            if (typeof target.takeDamage === 'function') {
+                target.takeDamage(dmg);
+            } else {
+                target.health = Math.max(0, target.health - dmg);
+                console.log(this.player + ' slashes ' + target.name + ' for ' + dmg + ' damage. Target HP:', target.health);
+                if (target.health === 0) console.log(target.name + ' has been slain by ' + this.player + '!');
+            }
+        };
+        sololeveling.useSkill = function(skillKey, target) {
+            console.log('sololeveling.useSkill called:', skillKey, 'on', target && target.name);
+            const skill = this.skills[skillKey] || this.skills.attack;
+            if (!skill) { console.log('sololeveling.useSkill failed: skill not found'); return; }
+            if (!target || typeof target.health !== 'number') { console.log('sololeveling.useSkill failed: invalid target'); return; }
+            const cost = skill.cost || 0;
+            if (this.mana < cost) { console.log(this.player + ' does not have enough mana to use ' + (skill.name || skillKey) + '. Need: ' + cost + ', Current: ' + this.mana); return; }
+            this.mana = Math.max(0, this.mana - cost);
+            console.log(this.player + ' consumes ' + cost + ' mana. Remaining mana: ' + this.mana);
+            if (typeof target.takeDamage === 'function') {
+                target.takeDamage(skill.damage);
+            } else {
+                target.health = Math.max(0, target.health - skill.damage);
+                console.log(this.player + ' uses ' + (skill.name || skillKey) + ' on ' + target.name + ' for ' + skill.damage + ' damage. Effect:', skill.effect || 'none');
+            }
+            if (skill.effect && typeof target.applyEffect === 'function') {
+                target.applyEffect({ type: skill.effect, duration: skill.duration || 2, damagePerTick: skill.dot || 0 });
+            }
+            if (target.health === 0) console.log(target.name + ' has been defeated by ' + this.player + ' using ' + (skill.name || skillKey) + '!');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statements Example</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 1rem; max-width: 700px; margin: auto; }
+        .example { border: 1px solid #ddd; padding: 1rem; margin: 1rem 0; border-radius: 6px; }
+        label, button { display: block; margin-top: 0.5rem; }
+        .result { margin-top: 0.5rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Showcasing if / else Conditions in JavaScript</h1>
+    <p>This page demonstrates simple conditional statements using JavaScript's <code>if</code>, <code>else if</code>, and <code>else</code>.</p>
+
+    <!-- Example 1: Age Checker (if / else) -->
+    <section class="example">
+        <h2>Example 1 — Age Checker (if / else)</h2>
+        <p>Enter your age and click <strong>Check Age</strong>. The script uses an <code>if</code> / <code>else</code> statement to decide whether the person is an adult.</p>
+        <label for="ageInput">Age:</label>
+        <input id="ageInput" type="number" min="0" max="100" placeholder="Please enter Age here" />
+        <button id="checkAgeBtn">Check Age</button>
+        <p class="result" id="ageResult" aria-live="polite"></p>
+    </section>
+
+    <!-- Example 2: Temperature Advice (if / else if / else) -->
+    <section class="example">
+        <h2>Example 2 — Temperature Advice (if / else if / else)</h2>
+        <p>Type a temperature in Celsius. The script decides what to recommend using <code>if</code>, <code>else if</code>, and <code>else</code>.</p>
+        <label for="tempInput">Temperature (°C):</label>
+        <input id="tempInput" type="number" placeholder="e.g., 25" />
+        <button id="tempBtn">Get Advice</button>
+        <p class="result" id="tempResult" aria-live="polite"></p>
+    </section>
+
+        <!-- Example 3: Temperature Advice (if / else if / else) -->
+    <section class="example">
+        <h2>Example 3 — Guess a number (if / else if / else)</h2>
+        <p>Guess the random number between 1 to 10</p>
+
+        <label for="difficulty">Level of Difficulty:</label>
+<select name="level" id="difficulty">
+    <option value="" disabled selected>Select your level</option>
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+ </select>
+
+<br><br>
+
+<!-- ⭐ NEW: Bet a Chicken -->
+    <label for="betChicken">Bet a Chicken:</label>
+    <input id="betChicken" type="number" min="1" placeholder="How many chickens will you bet?" />
+
+    <br><br>
+
+
+     <label for="userNum">User Number:</label>
+     <input id="userNum" type="number" min="1" max="10" placeholder="Place your guess here" />
+
+     <button id="guessBtn">Get Advice</button>
+
+     <p class="result" id="guessResult" aria-live="polite"></p>
+
+    </section>
+
+
+
+    
+    <script>
+        // Example 1: if / else
+        const ageInput = document.getElementById('ageInput');
+        const checkAgeBtn = document.getElementById('checkAgeBtn');
+        const ageResult = document.getElementById('ageResult');
+
+        checkAgeBtn.addEventListener('click', () => {
+            const age = Number(ageInput.value);
+            if (isNaN(age)) {
+                ageResult.textContent = 'Please enter a valid number for age.';
+                ageResult.style.color = 'crimson';
+                return;
+            }
+
+            // Here is the if / else logic: if age is 18 or older, show Adult, otherwise show Minor.
+            if (age >= 18) {
+                ageResult.textContent = `You are ${age} years old — Adult.`;
+                ageResult.style.color = 'green';
+            } else {
+                ageResult.textContent = `You are ${age} years old — Minor.`;
+                ageResult.style.color = 'blue';
+            }
+        });
+
+        // Example 2: if / else if / else
+        const tempInput = document.getElementById('tempInput');
+        const tempBtn = document.getElementById('tempBtn');
+        const tempResult = document.getElementById('tempResult');
+
+        tempBtn.addEventListener('click', () => {
+            const temp = Number(tempInput.value);
+            if (isNaN(temp)) {
+                tempResult.textContent = 'Please enter a valid temperature.';
+                tempResult.style.color = 'crimson';
+                return;
+            }
+
+            // if / else if / else chain provides multiple branches depending on the temperature
+            if (temp <= 0) {
+                tempResult.textContent = 'Freezing! Wear a heavy coat.';
+                tempResult.style.color = 'navy';
+            } else if (temp <= 20) {
+                tempResult.textContent = 'Cool weather. Wear a jacket.';
+                tempResult.style.color = 'teal';
+            } else if (temp <= 30) {
+                tempResult.textContent = 'Nice and warm.';
+                tempResult.style.color = 'green';
+            } else {
+                tempResult.textContent = 'Hot — stay hydrated and stay in the shade.';
+                tempResult.style.color = 'orange';
+            }
+        });
+
+
+        // Example 3: Guess a number (if / else if / else)
+        const userNumInput = document.getElementById('userNum');
+        const guessBtn = document.getElementById('guessBtn');
+        const guessResult = document.getElementById('guessResult');
+        const levelSelect = document.getElementById('difficulty');
+        const betChickenInput = document.getElementById('betChicken');
+
+       // Difficulty settings
+const difficultySettings = {
+    easy: { max: 10, tries: 5 },
+    medium: { max: 25, tries: 4 },
+    hard: { max: 50, tries: 3 }
+};
+
+let secretNumber = null;
+let triesLeft = 0;
+let currentMax = 10;
+let chickenWallet = 0; // <-- Chicken Wallet
+
+// Create a wallet display
+const walletDisplay = document.createElement('p');
+walletDisplay.id = 'wallet';
+walletDisplay.textContent = `🐔 Chicken Wallet: ${chickenWallet}`;
+document.querySelector('.example').appendChild(walletDisplay);
+
+// Start game when difficulty changes
+document.getElementById("difficulty").addEventListener("change", function () {
+    const level = this.value;
+
+    if (!level) return;
+
+    currentMax = difficultySettings[level].max;
+    triesLeft = difficultySettings[level].tries;
+
+    secretNumber = Math.floor(Math.random() * currentMax) + 1;
+
+    document.getElementById("guessResult").textContent =
+        `Game started! Secret number is between 1 and ${currentMax}. You have ${triesLeft} tries.`;
+});
+
+// Guess Button
+document.getElementById("guessBtn").addEventListener("click", function () {
+    const userGuess = Number(document.getElementById("userNum").value);
+    const chickenBet = Number(document.getElementById("betChicken").value);
+    const result = document.getElementById("guessResult");
+
+    // Validation
+    if (!secretNumber) {
+        result.textContent = "Please choose a difficulty level first.";
+        return;
+    }
+
+    if (!userGuess || userGuess < 1 || userGuess > currentMax) {
+        result.textContent = `Enter a number between 1 and ${currentMax}.`;
+        return;
+    }
+
+    if (!chickenBet || chickenBet < 1) {
+        result.textContent = "Please bet at least 1 chicken!";
+        return;
+    }
+
+    // Guess logic
+    triesLeft--;
+
+    if (userGuess === secretNumber) {
+        result.textContent = `🎉 Correct! The number was ${secretNumber}. You WIN ${chickenBet} chicken(s)!`;
+        chickenWallet += chickenBet; // Add to wallet
+        secretNumber = null;
+    } 
+    else if (triesLeft <= 0) {
+        result.textContent = `❌ Wrong! The correct number was ${secretNumber}. You LOSE your ${chickenBet} chicken(s)!`;
+        chickenWallet -= chickenBet; // Subtract from wallet
+        secretNumber = null;
+    } 
+    else if (userGuess > secretNumber) {
+        result.textContent = `Too high! You have ${triesLeft} tries left.`;
+    } 
+    else {
+        result.textContent = `Too low! You have ${triesLeft} tries left.`;
+    }
+
+    // Update wallet display
+    walletDisplay.textContent = `🐔 Chicken Wallet: ${chickenWallet}`;
+});
+
+
+
+
+      let maxNumber;
+      const miniNumber = 1;
+
+        guessBtn.addEventListener('click', () => {
+            const userNum = Number(userNumInput.value);
+            if (isNaN(userNum) || userNum < miniNumber || userNum > maxNumber) {
+                guessResult.textContent = 'Please enter a valid number between 1 and 1000.';
+                guessResult.style.color = 'crimson';
+                return;
+            }
+
+            levelSelect.addEventListener('change', () => {
+            const level = levelSelect.value;
+            if (level === 'easy') {
+                maxNumber = 10;
+            } else if (level === 'medium') {
+                maxNumber = 500;
+            } else if (level === 'hard') {
+                maxNumber = 1000;
+            }
+        });
+
+        switch (levelSelect.value) {
+            case 'easy':
+                maxNumber = 10;
+                break;
+            case 'medium':
+                maxNumber = 500;
+                break;
+            case 'hard':
+                maxNumber = 1000;
+                break;
+            default:
+                guessResult.textContent = 'Please select a difficulty level.';
+                guessResult.style.color = 'crimson';
+                return;
+        }
+
+
+            const randomNum = Math.floor(Math.random() * maxNumber) + miniNumber;
+
+            // if / else if / else chain to check the guessed number
+            if (userNum === randomNum) {
+                guessResult.textContent = `Congratulations! You guessed it right. The number was ${randomNum}.`;
+                guessResult.style.color = 'green';
+            } else if (userNum < randomNum) {
+                guessResult.textContent = `Too low! The correct number was ${randomNum}.`;
+                guessResult.style.color = 'blue';
+            } else {
+                guessResult.textContent = `Too high! The correct number was ${randomNum}.`;
+                guessResult.style.color = 'orange';
+            }
+        });
+
+        
+    </script>
+</body>
+</html>

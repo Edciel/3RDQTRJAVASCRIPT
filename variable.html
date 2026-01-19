@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable in javascript</title>
+</head>
+<body>
+    <h1>Variable in javascript</h1>
+    <button type="button" onclick="private_variable()">
+        this will show the private variable</button>
+    <script>
+        let x = 50;
+        let y = 4;
+        y = 10;
+        x = 20;
+        console.log(x + y);
+        const z = 100;
+        console.log(z);
+        let let_this = 5;
+        console.log(let_this);
+        var studentName = "John Doe";
+        console.log(studentName);
+        function private_variable() {
+            let _x = "this is a private variable";
+            console.log(_x);
+        }
+        var $ = "this is valid";
+        let $$ = "also valid";
+        const $$$valid = "still valid";
+        console.log($);
+        console.log($$);
+        console.log($$$valid);
+        let declareVar;//declaration without initialization
+        declareVar = "now it's initialized";//initialization
+        console.log(declareVar);
+        const price1 = 5;
+        const price2 = 10;
+        let total = price1 + price2;
+        console.log("Total Price: " + total);
+        autoVar = "this is an auto  global variable";
+        console.log(autoVar);
+        let num1 = 10;
+        let num2 = 20;
+        let num3 = 30;
+        console.log(num1 + num2 + num3); //output 102030
+        let text1 = "Hello, ";
+        let text2 = "world!";
+        let text3 = "!";
+        console.log(text1 + text2 + text3); //output Hello, world!"
+        let a ="a", b ="b", c ="c";
+        console.log(a + b + c); //output "undefinedundefinedundefined"
+        let addend1 = 5, addend2 = 10, addend3 = 15;
+        let sum = addend1 + addend2 + addend3;
+        console.log("sum: " + (addend1 + addend2 + addend3)); //output 30
+        let  minuend =20 , subtrahend =5;
+        console.log("difference: " + (minuend - subtrahend)); //output 15
+        let multiplicand =4 , multiplier =5;
+        console.log("product: " + (multiplicand * multiplier)); //output 20
+        let dividend =20 , divisor =4;
+        let quotient = dividend / divisor;
+        console.log("quotient: " + (dividend / divisor)); //output 5
+
+
+        let globalVar = "I am a global variable";//global variable
+        {
+        let localVar1 = "I am a  local variable";//local variable
+        console.log(globalVar);
+        console.log(localVar1);
+        }
+        {
+        let localVar1 = "I am a another local variable";//local variable
+        console.log(globalVar);
+        console.log(localVar1);
+        }
+    let reassignlet = "first value";
+    console.log(reassignlet);
+    reassignlet2 = "second value";
+    console.log(reassignlet2);
+
+    var redeclarevar = "declaration value";
+    console.log(redeclarevar); 
+    var redeclarevar = "redeclaration value";
+    console.log(redeclarevar);
+    hoistedVar = "I am hoisted";
+    console.log(hoistedVar);
+    var hoistedVar;
+    //it's hoisted
+
+    let numBig = 123456789012345678901234567890n; 
+    console.log(numBig);
+    const BigIntum = 12345678901234567890123456789056n;
+    console.log(BigIntum);
+    const BigIntum2 = BigInt (12345678901234567890123456789056);
+    console.log(BigIntum2);
+    </script>
+
+</body>
+</html>

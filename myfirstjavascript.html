@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Java script</title>
+    <script src="myfirstjavascript.js"></script>
+    <script>//javascript on the head of html
+    function changeP2() {
+       document.getElementById("P2").innerHTML =
+    'Paragraph 2 changed successfully in the head!';
+}
+function alert2(){
+    alert("this is an alert box from javascript in the head");
+}
+function console2(){
+    console.log("this is a console log from javascript in the head");
+}
+    </script>
+    
+</head>
+<body>
+   <h1>My first javascript web page.</h1>
+   <h4>this part using innerHTML.</h4> 
+   <p id="P1">this paragraph will change by the button below</p>
+   <button type="button" onclick=changeP1()>click me to change paragraph.</button>
+   <hr>
+    <p id="P2">this paragraph will change by the button below</p>
+    <button type="button" onclick=changeP2()>click me to change paragraph.</button>
+   <hr>
+    <p id="P3">this paragraph will change by the button below</p>
+    <button type="button" onclick=changeP3()>click me to change paragraph.</button>
+   <hr>
+   <h4>this part will use window alert output of a javascript</h4>
+   <button type="window" onclick="alert1()">click me to get an alert.</button>
+   <button type="window" onclick="alert2()">click me to get an alert.</button>
+   <button type="window" onclick="alert3()">click me to get an alert.</button>
+
+   <hr>
+   <h4>this part will use console output of a javascript</h4>
+   <button type="window" onclick="console1()">click me for an console.</button>
+   <button type="window" onclick="console2()">click me for an console.</button>
+   <button type="window" onclick="console3()">click me for an console.</button>
+
+   <hr>
+   <h4>this part will use document.write of a javascript</h4>
+   <button type="window" onclick="docwrite()">click me document write this html.</button> 
+
+
+<script>//javascript on the body of html
+function changeP1(){
+    document.getElementById("P1").innerHTML =
+    "Paragraph 1 changed successfully!";
+}
+function alert1(){
+    alert("this is an alert box from javascript in the body");
+}
+function console1(){
+    console.log("this is a console log from javascript in the body");
+}
+</script>
+</body>
+</html>
