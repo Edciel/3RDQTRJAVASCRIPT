@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI SOLVER</title>
+</head>
+<body>
+    
+    <h2>BMI Calculator</h2>
+    <p>Enter your weight (in kg) and height (in meters) to calculate your BMI.</p>
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight" ><br>
+
+    <label for="height">Height (m):</label>
+    <input type="number" id="height" ><br>
+
+    <script>
+        function BMI(weight, height) {
+            return weight / (height * height);
+        }
+       
+        function calculateBMI () {
+            let bigat = parseFloat(document.getElementById("weight").value);
+            let taas = parseFloat(document.getElementById("height").value);
+            if (bigat > 0 && taas > 0) {
+                let bmi = BMI(bigat, taas);
+                document.getElementById("result").textContent = "Your BMI is: " + bmi.toFixed(2);
+            } else {
+                document.getElementById("result").textContent = "Please enter valid weight and height.";
+            }
+
+        }
+            
+
+    </script>

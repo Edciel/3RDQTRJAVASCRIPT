@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function in html</title>
+</head>
+<body>
+    <h1>Function in JavaScript</h1>
+    <p id="test"></p>
+<p id="para"></p>
+<hr>
+<h4>Addition</h4>
+<p id="add"></p>
+
+<hr>
+<h4>Addition</h4>
+<p id="add1"></p>
+<div>
+<label for="sub1">Enter first number:</label>
+<input type="number" id="sub1" name="sub1"><br><br>
+<label for="sub2">Enter second number:</label>
+<input type="number" id="sub2" name="sub2"><br><br>
+<button onclick="Addition()">Submit</button>
+</div>
+<hr>
+<h4>Subtraction</h4>
+<p id="sub"></p>
+<div>
+<label for="mul1">Enter first number:</label>
+<input type="number" id="mul1" name="mul1"><br><br>
+<label for="mul2">Enter second number:</label>
+<input type="number" id="mul2" name="mul2"><br><br>
+<button onclick="Subtraction()">Submit</button>
+</div>
+<hr>
+<h4>multiplication</h4>
+<p id="mul"></p>
+<div>
+<label for="div1">Enter first number:</label>
+<input type="number" id="div1" name="div1"><br><br>
+<label for="div2">Enter second number:</label>
+<input type="number" id="div2" name="div2"><br><br>
+<button onclick="Multiplication()">Submit</button>
+</div>
+<hr>
+<h4>divition</h4>
+<p id="divS"></p>
+<div>
+<label for="mod1">Enter first number:</label>
+<input type="number" id="mod1" name="mod1"><br><br>
+<label for="mod2">Enter second number:</label>
+<input type="number" id="mod2" name="mod2"><br><br>
+<button onclick="Divition()">Submit</button>
+</div>
+<hr>
+
+    <script>
+
+
+
+        function myfirstfunction() {
+            alert("My first function!");
+        }
+        myfirstfunction();
+        function messagefunction() {
+            console.log("this is message from a function!");
+        }
+        
+         myfunction = (a,b) => a + b; 
+
+
+
+
+        let testp = document.getElementById("test");
+      testp.textcontent = myfunction(5,10);
+
+      printmessage = () => 'text';
+
+      testp.textContent = printmessage();
+
+      alert(printmessage());
+
+      let myCar = "BMW";
+      function buyCar(){
+         myCar = "toyota";
+      }
+        buyCar();
+      testp.textContent = myCar;
+
+
+
+
+
+
+      myParameter = (parameter1,parameter2) =>
+       parameter1 + parameter2;
+        let para = document.getElementById("para");
+        para.textContent = myParameter(4,5);
+
+         addition(add1,add2)  = add1 + add2;
+        
+        let addp = document.getElementById("add");
+        addp.textContent = addition(10,15);
+    </script>
+
+ 
+         
+</body>
+</html>

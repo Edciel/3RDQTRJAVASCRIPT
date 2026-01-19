@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FF6B6B 50%, #4169E1 75%, #87CEEB 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 5px solid #FFD700;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 300px;
+            border: 2px solid #FF6B6B;
+            border-radius: 8px;
+            background-color: #FFF;
+        }
+        h1 {
+            color: #FF1744;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 2.5em;
+        }
+        .nav-section {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            color: #1976D2;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            color: #FF1744;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+            .signature {
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 2px solid #FFD700;
+                text-align: center;
+                color: #1976D2;
+                font-style: italic;
+                font-size: 0.95em;
+            }
+        
+        </style>
+</head>
+<body>
+<div class="container">
+<h1> Navigation to my work in JavaScript </h1>
+    <div class="nav-section">
+        <label for="pageSelector"><strong>Select a page to navigate:</strong></label>
+        <select id="pageSelector">
+            <option value="">-- Choose a Page --</option>
+            <option value="myfirstjavascript.html">My First JavaScript</option>
+            <option value="syntax.html">Syntax</option>
+            <option value="variable.html">Variable</option>
+            <option value="operation.html">Operation</option>
+            <option value="conditional-statement.html">Conditional Statement</option>
+            <option value="loop.html">Loop</option>
+            <option value="sirseraaspecode.html">Conditional Statement 2<code>(Group Activity)</code></option>
+        </select>
+    </div>
+    <p>This is the main index page. Navigate to the <a href="loop.html">loop demonstration page</a> to see examples of loops in JavaScript. Click the highlight text or use the selection menu above.</p>
+    <div class="signature">
+        <p>✨ Created by Edciel D. Geolina ✨</p>
+    </div>
+     <script>
+        const pageSelector = document.getElementById('pageSelector');
+        pageSelector.addEventListener('change', function() {
+            if (this.value) {
+                window.location.href = this.value;
+            }
+        });
+
+        
+     </script>
+</div>
+</body>
+</html>
